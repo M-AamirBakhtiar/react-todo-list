@@ -8,17 +8,29 @@ export default class App extends Component {
   state = {
     id: uuidv4(),
     item: '',
-    items: [
-      { id: 1, title: 'Wake Up' },
-      { id: 2, title: 'Make Breakfast' }
-    ],
+    items: [],
     editItem: false
   };
   handleInputChange = e => {
-    console.log(e);
+    this.setState({
+      item: e.target.value
+    });
   };
   handleFormSubmit = e => {
-    e.preveantDefault();
+    e.preventDefault();
+    const itemToBeAdded = {
+      id: this.state.id,
+      title: this.state.item
+    };
+    if (itemToBeAdded.title.length > 0) {
+      const updatedList = [...this.state.items, itemToBeAdded];
+      this.setState({
+        items: updatedList,
+        id: uuidv4(),
+        item: '',
+        editItem: false
+      });
+    }
   };
   clearList = () => {};
   handleDelete = id => {};
