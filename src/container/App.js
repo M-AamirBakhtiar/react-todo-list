@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import TodoInput from '../components/TodoInput/TodoInput';
 import TodoList from '../components/TodoList/TodoList';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends Component {
   state = {
-    id: uuid(),
+    id: uuidv4(),
     item: '',
     items: [
       { id: 1, title: 'Wake Up' },
