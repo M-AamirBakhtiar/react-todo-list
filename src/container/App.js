@@ -50,7 +50,6 @@ export default class App extends Component {
             />
             <TodoList
               items={items}
-              key={id}
               clearList={this.clearList}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
